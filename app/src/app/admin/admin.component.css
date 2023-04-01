@@ -1,0 +1,106 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.persistence {
+    display: flex;
+    flex-direction: row;
+}
+
+.per{
+    width: 5rem;
+    height: 2rem;
+    padding: 2rem;
+    background-color: rgb(7, 144, 68);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+.per:hover{
+    background-color:rgb(14, 196, 96);
+}
+
+.users{
+    width: 80%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 2rem;
+}
+
+.userUser{
+    margin: 0.5rem;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.roles{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.role{
+    padding: 0.5rem;
+    background-color: rgb(7, 144, 68);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+.ban{
+    padding: 0.5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+#unban{
+    background-color: rgb(7, 144, 68);
+}
+
+#ban{
+    background-color: rgb(224, 78, 78); 
+}
+
+#manager{
+    background-color: rgb(68, 85, 211);
+}
+
+#admin{
+    background-color: rgb(224, 78, 78);  
+}
+
+@media (max-width: 869px){
+    .users{
+        background-color: aquamarine;
+        width: 80%;
+        display: grid;
+        grid-template-columns: auto;
+        padding: 2rem;
+    }
+
+    .persistence {
+        flex-direction: column;
+    }
+}

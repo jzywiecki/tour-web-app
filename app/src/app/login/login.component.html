@@ -1,0 +1,16 @@
+<div class="container">
+    <h2>Zaloguj się!</h2>
+    <div class="email">
+        <h4>Email:</h4>
+        <input type="text" #email/>
+    </div>
+    <div class="password"> 
+        <h4>Hasło: </h4>
+        <input type="password" #password/>
+    </div>
+    <div class="error">
+        {{errorMessage}}
+    </div>
+    <button (click)="onSignIn(email.value, password.value)">Zaloguj</button>
+
+</div>

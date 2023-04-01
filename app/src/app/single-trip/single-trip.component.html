@@ -1,0 +1,61 @@
+
+<div class="trip">
+    <h1>{{trip.name | uppercase}}</h1>
+    <h2>{{trip.country | uppercase}}</h2>
+    <div>{{trip.unitPrice | currency:'USD'}}</div>
+    <p>{{trip.startDate}} - {{trip.endDate}}</p>
+    <p>{{trip.description}}</p>
+    <ng-container *ngIf="!(trip.maxAttendance - service.chosenTrips[trip.key])">Brak dostepnych wycieczek</ng-container>
+    <ng-container *ngIf="(trip.maxAttendance - service.chosenTrips[trip.key])">Zarezerwuj!</ng-container>
+    <div class="buttons">
+      <button id="button-left" [disabled]="!service.chosenTrips[trip.key]" [ngStyle]="{'visibility': service.chosenTrips[trip.key] > 0 ? 'visible' : 'hidden'}" (click)="service.removeFromCart(trip.key)">-</button>
+      <p>{{trip.maxAttendance - service.chosenTrips[trip.key]}}</p>
+      <button id="button-right" [disabled]="!(trip.maxAttendance - service.chosenTrips[trip.key])" [ngStyle]="{'visibility': (trip.maxAttendance - service.chosenTrips[trip.key]) > 0 ? 'visible' : 'hidden'}" (click)="service.addToCart(trip.key)">+</button>
+      </div>
+    <app-rate-trip></app-rate-trip>
+    
+    <h2>Zdjęcia</h2>
+    <div class="gallery">
+      <img class="image" *ngFor="let photo of trip.photos" src="{{ photo }}">
+    </div>
+
+    <div class="reviews">
+      <h2>Recenzje</h2>
+      <div class="review" *ngFor="let review of reviews">
+        <div class="header">
+          <h3 class="title">{{ review.name }}</h3>
+          <span class="desc"> Dodano przez: {{ review.nick }}.<span *ngIf="review.purchaseDate"> Data zakupu: {{ review.purchaseDate | date }}</span></span>
+        </div>
+        <div class="content">
+          {{ review.text }}
+        </div>
+      </div>
+    </div>
+
+
+    <div class="review-new" *ngIf="!this.authService.loggedUser.banned">
+      <h2>Dodaj nową recenzje</h2>
+      <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+        <input formControlName="nick" type="text" placeholder="Nick">
+        <div *ngIf="reviewForm.get('nick').errors?.['required'] && reviewForm.get('nick').touched">Nick jest wymagany</div>
+        <input formControlName="name" type="text" placeholder="Nazwa recenzji">
+        <div *ngIf="reviewForm.get('name').errors?.['required'] && reviewForm.get('name').touched">Nazwa jest wymagana</div>
+        <textarea formControlName="text" formControlName="text" placeholder="Opis recenzji. Co najmniej 50 znaków i nie więcej niż 500."></textarea>
+        <div *ngIf="reviewForm.controls['text'].invalid && reviewForm.get('text').touched">Opis recenzji jest wymagany i powinien mieć między 50 a 500 znaków.</div>
+        <input formControlName="purchaseDate" type="date">
+        <input type="submit" [disabled]="!reviewForm.valid" value="Dodaj">
+      </form>
+    </div>
+    <p *ngIf="this.authService.loggedUser.banned">Nie mozesz ocenic wycieczki bedac zbanowanym!</p>
+      <div><a class="back" routerLink="../" routerLinkActive="active" ariaCurrentWhenActive="page">Wróć do oferty</a></div>
+</div>
+
+
+
+
+
+
+
+
+
+

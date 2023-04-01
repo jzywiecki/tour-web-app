@@ -1,0 +1,27 @@
+<div class="container">
+    <h4>Tryb persystencji</h4>
+    <div class="persistence">
+        <div class="per" *ngFor="let p of persistences" (click)="changePersistence(p)">
+            {{p}}
+        </div>
+    </div> 
+
+    <h4>Uzytkownicy</h4>
+    <div class="users" *ngIf="users">
+        
+        <ng-container *ngFor="let user of users">
+           <div class="userUser">
+                <div class="username">{{user.username}}</div>
+                <div class="email">{{user.email}} </div>
+                <div class="roleRole">{{user.role}}</div>
+                <div *ngIf="!user.banned" id="ban" class="ban" (click)="ban(user)">Zbanuj</div>
+                <div *ngIf="user.banned" id="unban" class="ban" (click)="unban(user)">Odbanuj</div>
+                <div class="roles">
+                    <div class="role" id="user" (click)="setRole(user,'User')">User</div>
+                    <div class="role" id="manager" (click)="setRole(user,'Manager')">Menager</div>
+                    <div class="role" id="admin" (click)="setRole(user,'Admin')">Admin</div>
+                </div>
+            </div>           
+        </ng-container>
+    </div>
+</div>

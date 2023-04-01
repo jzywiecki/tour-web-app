@@ -1,0 +1,14 @@
+<div class="basket">
+    <div class="container">
+        <h2>Koszyk</h2>
+        <ng-container *ngFor="let trip of service.trips">
+            <div *ngIf="service.chosenTrips[trip.key]">
+                <p>{{trip.name}}: {{service.chosenTrips[trip.key]}}</p>
+            </div>
+        </ng-container>
+        <h3>Suma: {{calculateSum() | currency: 'USD'}}</h3>
+        <div [ngStyle]="{'background-color': service.getAmount() >= 10 ? 'mediumaquamarine' : 'white'}" class="counter">
+            Łącznie wycieczek: {{service.getAmount()}}
+        </div>    
+    </div>
+</div>

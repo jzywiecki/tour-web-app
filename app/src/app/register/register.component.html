@@ -1,0 +1,19 @@
+<div class="container">
+    <h2>Zarejestruj się!</h2>
+    <div class="username">
+        <h4>Imie i nazwisko:</h4>
+        <input type="text" id="username" name="username" #username/>
+    </div>
+    <div class="email">
+        <h4>Email:</h4>
+        <input type="text" id="email" name="email" #email/>
+    </div>
+    <div class="password"> 
+        <h4>Hasło: </h4>
+        <input type="password" id="password" name="password" #password/>
+    </div>
+    <div class="error">
+        {{errorMessage}}
+    </div>
+    <button (click)="onSignUp(email.value, password.value, username.value)">Zarejestruj</button>
+</div>

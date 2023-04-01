@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.left{
+    background-color: white;
+    width: 100%;
+    border-bottom: 0.1rem solid black;
+}
+
+

@@ -1,0 +1,8 @@
+<div class="container">
+    <ng-container *ngFor="let trip of service.trips | filterPipe: service.filterName: service.minUnitPrice: service.minUnitPrice: service.minUnitPrice: service.maxUnitPrice; let i = index" >
+        <div class="trips">
+            <div class="trip"><app-trip [trip]="trip" [i]="i"></app-trip></div>
+        </div>
+    </ng-container>
+
+</div>

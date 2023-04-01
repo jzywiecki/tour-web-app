@@ -1,0 +1,16 @@
+.container{
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-slider {
+    width: 300px;
+}
+
+input{
+    width: 300px;
+}

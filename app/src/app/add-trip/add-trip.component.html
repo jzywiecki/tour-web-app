@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="trips">
+    <ng-container *ngFor="let trip of service.trips; let i = index" >
+        <div class="option">
+            <div class="name">{{trip.name}}</div>
+            <div class="trip">     
+                <div class="edit"><a routerLink="/add-trip/{{[i]}}">Edytuj</a></div>
+                <div class="remove"><app-remove-trip [k]="trip.key"></app-remove-trip></div> 
+            </div>
+        </div>    
+    </ng-container>
+    </div>
+    <form [formGroup]="modelForm">
+        <h3>Dodaj wycieczke</h3>
+        <label>name: </label><input formControlName="name">
+        <div class="validators" *ngIf="modelForm.get('name').errors?.['required']">Nazwa jest wymagana.</div>
+        <label>country: </label><input formControlName="country">
+        <div class="validators" *ngIf="modelForm.get('country').errors?.['required']">Kraj jest wymagany.</div>
+        <label>startDate: </label><input formControlName="startDate">
+        <div class="validators" *ngIf="(modelForm.get('startDate').errors?.['required'] || modelForm.get('startDate').errors?.['pattern'])">Data rozpoczęcia jest wymagana w formacie dd/mm/rrrr.</div>
+        <label>endDate: </label><input formControlName="endDate">
+        <div class="validators" *ngIf="(modelForm.get('endDate').errors?.['required'] || modelForm.get('endDate').errors?.['pattern'])">Data rozpoczęcia jest wymagana w formacie dd/mm/rrrr.</div>
+        <label>unitPrice: </label><input formControlName="unitPrice">
+        <div class="validators" *ngIf="modelForm.get('unitPrice').errors?.['required']">Cena jest wymagana i musi być podana jako liczba (bez waluty).</div>
+        <label>maxAttendance: </label><input formControlName="maxAttendance">
+        <div class="validators" *ngIf="modelForm.get('maxAttendance').errors?.['required']">Liczba wycieczek moliwych do zakupienia jest wymagana.</div>
+        <label>description: </label><input formControlName="description">
+        <div class="validators" *ngIf="modelForm.get('description').errors?.['required']">Opis jest wymagany.</div>
+        <label>photo: </label><input formControlName="photos">
+        <div class="validators" *ngIf="modelForm.get('photos').errors?.['required']">Link do zdjęcia jest wymagany.</div>
+        <button type="submit" (click)="submit()" [disabled]="!modelForm.valid">Dodaj</button>
+    </form>
+</div>
+

@@ -1,0 +1,13 @@
+<div class="container">
+    <p *ngIf="!this.authService.loggedUser.banned">Oceń wycieczkę!</p>
+    <div *ngIf="!this.authService.loggedUser.banned" class="stars-holder">
+        <div class="star" style="background-color: red;" (click)="addRate(1)">1</div>
+        <div class="star" style="background-color: rgb(255, 106, 0);" (click)="addRate(2)">2</div>
+        <div class="star" style="background-color: rgb(238, 206, 0);" (click)="addRate(3)">3</div>
+        <div class="star" style="background-color: rgb(177, 241, 86);" (click)="addRate(4)">4</div>
+        <div class="star" style="background-color: green;" (click)="addRate(5)">5</div>
+    </div>
+    
+    <div *ngIf="this.authService.loggedUser.banned">Nie mozesz ocenic wycieczki bedac zbanowanym.</div>
+    <div *ngIf="!this.authService.loggedUser.banned">Avg Rate: {{tripRate}}/5</div>
+</div>

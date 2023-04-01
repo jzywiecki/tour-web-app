@@ -1,0 +1,95 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 30rem;
+    box-shadow: 2px 2px 0px black;
+}
+
+
+img{
+    width: 30rem;
+    height: 28rem;
+    object-fit: cover;
+    margin: 2rem;
+    border-radius: 1rem;
+    opacity: 1;
+}
+
+img:hover {
+    opacity: 0.7;
+}
+
+.trip{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    margin: 2rem;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+button{
+    width: 2rem;
+    height: 2rem;
+    margin: 1rem;
+    color: white;
+    background-color: aquamarine;
+    border: 0;
+    border-radius: 0.3vw;
+}
+
+#button-left{
+    background-color: rgb(237, 97, 97);
+}
+
+#button-right{
+    background-color: green;
+}
+
+.color-low{
+    background-color: yellow;
+}
+
+.color-regular{
+    background-color: whitesmoke;
+}
+
+.color-empty{
+    background-color: red;
+}
+
+
+.border-max{
+    border-left: 0.3vh solid red !important;
+}
+
+.border-min{
+    border-left: 0.3vh solid green !important;
+}
+
+
+@media only screen and (max-width: 870px) {
+    .container{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        height: auto;
+    }
+
+
+}
+
+@media only screen and (max-width: 600px) {
+    img{
+        width: 20rem;
+        height: 18rem;
+        margin: 1rem;
+    }
+
+}

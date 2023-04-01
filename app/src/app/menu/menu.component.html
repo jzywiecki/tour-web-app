@@ -1,0 +1,28 @@
+<header>
+    <div class="logo">VibeTrips</div>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <nav>
+        <ul>
+            <a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page"><li>Home</li></a>
+            <a routerLink="trips" routerLinkActive="active" ariaCurrentWhenActive="page"><li>Oferta</li></a>
+            <a routerLink="add-trip" routerLinkActive="active" ariaCurrentWhenActive="page"><li *ngIf="this.isManager() || this.isAdmin()">Zarzadzaj wycieczkami</li></a>
+            <a routerLink="admin" routerLinkActive="active" ariaCurrentWhenActive="page"><li *ngIf="this.isAdmin()">Admin</li></a>
+           <a routerLink="basket" routerLinkActive="active" ariaCurrentWhenActive="page"><li *ngIf="this.isLogged()">Koszyk</li></a>
+            <a routerLink="login" routerLinkActive="active" ariaCurrentWhenActive="page"><li *ngIf="!this.isLogged()">Logowanie</li></a>
+            <a routerLink="register" routerLinkActive="active" ariaCurrentWhenActive="page"><li *ngIf="!this.isLogged()">Rejestracja</li></a>
+            <a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page" (click)="this.authService.logout()"><li *ngIf="this.isLogged()">Wyloguj</li></a>
+        </ul>
+    </nav>
+    <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+    </label>
+</header>
+<main>
+    <div class="details">
+        <div id="basket-details" *ngIf="this.isLogged()">W koszyku: {{ service.getAmount() }}</div>
+        <div id="basket-details-sum" *ngIf="this.isLogged()">Łącznie w koszyku: {{calculateSum() | currency: 'USD'}}</div>
+        <div id="trip-details" *ngIf="this.isLogged()">Najblizsza wycieczka: Brak</div>
+        <div id="user-details" *ngIf="this.isLogged()">Uzytkownik: {{this.authService.loggedUser.username}}</div>
+    </div>
+    <router-outlet></router-outlet>
+</main>
