@@ -1,7 +1,5 @@
 # tour-web-app
 
-![Zrzut ekranu 2023-04-1 o 22 58 33](https://user-images.githubusercontent.com/105950890/229315690-f47e05e4-76bb-48ef-bb8e-4b32b42a9813.png)
-
 ## Project Description
 
 The project is a responsive travel agency website built using Angular, with Firebase serving as the backend technology. The website offers a variety of travel packages to different destinations and has been designed to enable users to browse through the packages and make reservations.
